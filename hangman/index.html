@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+    <link rel="shortcut icon" href="Hangman-Game-grey.webp">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Welcome to Hangman!</h1>
+
+        
+        <div id="category-selection">
+            <label for="category">Choose a category:</label>
+            <select id="category">
+                <option value="programming">Programming</option>
+                <option value="animals">Animals</option>
+                <option value="general">General</option>
+            </select>
+            
+            <label for="difficulty">Choose Difficulty:</label>
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+            
+            <button id="start-game-btn">Start Game</button>
+        </div>
+
+        
+        <div id="game-board" class="hidden">
+            <div id="hangman-stage">
+                <pre id="hangman-image"></pre>
+            </div>
+
+            <div id="word-display">
+                <p id="word"></p>
+            </div>
+
+            <div id="guesses">
+                <p>Guessed letters: <span id="guessed-letters"></span></p>
+            </div>
+
+            <div id="hint-section">
+                <p>Hint: <span id="hint-text"></span></p>
+                <button id="use-hint-btn">Use Hint (-5 points)</button>
+            </div>
+
+            <div id="score-board">
+                <p>Score: <span id="score">0</span></p>
+            </div>
+
+            <div id="timer-section">
+                <p id="time-left">Time Left: 15s</p>
+            </div>
+
+            <div id="guess-input-section">
+                <input type="text" id="guess-input" maxlength="1" placeholder="Enter a letter">
+                <button id="submit-guess-btn">Submit Guess</button>
+                <p id="error-message" class="hidden" style="color: red; font-size: 18px;">Please enter a letter.</p>
+            </div>
+        </div>
+        <div id="game-over" class="hidden">
+            <p id="game-over-message"></p>
+            <p>Final Score: <span id="final-score"></span></p>
+            <p id="high-score">High Score: 0</p>
+            <button id="replay-btn" class="btn">Play Again</button>
+            <p id="games-played">Games Played: 0</p>
+            <p id="win-loss-ratio">Win/Loss Ratio: 0/0</p>
+            <p id="most-frequent-guesses">Most Guessed Letters: {}</p>
+        </div>
+    </div>
+    <audio id="background-music" loop>
+        <source src="background.mp3" type="audio/mp3">
+      
+    </audio>
+    <audio id="correct-sound">
+        <source src="correct.mp3.mp3" type="audio/mp3">
+    </audio>
+    <audio id="incorrect-sound">
+        <source src="incorrect.mp3.mp3" type="audio/mp3">
+    </audio>
+    <audio id="hint-sound">
+        <source src="hint.wav" type="audio/mp3">
+    </audio>
+    <audio id="victory-sound">
+        <source src="sfx-victory3.mp3" type="audio/mp3">
+    </audio>
+    <audio id="loss-sound">
+        <source src="sfx-defeat2.mp3" type="audio/mp3">
+    </audio>
+    <audio id="welcome-music">
+        <source src="welcome.mp3" type="audio/mp3">
+    </audio>
+    
+    <script src="hangman.js"></script>
+</body>
+</html>
